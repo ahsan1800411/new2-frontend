@@ -42,8 +42,8 @@ export const createBill = createAsyncThunk(
   'createBill',
   async (billData: any, ThunkApi) => {
     try {
-      await axios.post('/bills', billData);
-      const { data } = await axios('/bills');
+      await axios.post('https://new1-production.up.railway.app/bills', billData);
+      const { data } = await axios('https://new1-production.up.railway.app/bills');
       return data;
     } catch (error: any) {
       return ThunkApi.rejectWithValue(error.response.data.message);
@@ -55,7 +55,7 @@ export const updateBill = createAsyncThunk(
   async (billData: any, ThunkApi) => {
     try {
       await axios.patch(`https://new1-production.up.railway.app/bills/${billData?.id}`, billData);
-      const { data } = await axios('/bills');
+      const { data } = await axios('https://new1-production.up.railway.app/bills');
       return data;
     } catch (error: any) {
       return ThunkApi.rejectWithValue(error.response.data.message);
@@ -67,7 +67,7 @@ export const deleteBill = createAsyncThunk(
   async (id: any, ThunkApi) => {
     try {
       await axios.delete(`https://new1-production.up.railway.app/bills/${id}`);
-      const { data } = await axios('/bills');
+      const { data } = await axios('https://new1-production.up.railway.app/bills');
       return data;
     } catch (error: any) {
       return ThunkApi.rejectWithValue(error.response.data.message);
